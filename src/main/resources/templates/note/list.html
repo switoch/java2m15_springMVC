@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Notes</title>
+</head>
+
+<body>
+<div id="display-table" align="left">
+    <table>
+        <label>Create a new Note</label>
+        <form style="width:100%" action="/note/create" method="post">
+            <td><label>ID: </label></td>
+            <td><input type="text" id="noteID" name="noteID"/></td>
+            <td><label>Title: </label></td>
+            <td><input type="text" id="noteTitle" name="noteTitle"/></td>
+            <td><label>Context: </label></td>
+            <td><input type="text" id="noteContent" name="noteContent"/></td>
+            <td><input type="submit" value="save"/></td>
+        </form>
+    </table>
+</div>
+<div>
+    <p></p>
+    <label>Notes List</label>
+    <div th:each="note: ${list}">
+        <div th:text="'id: ' + ${note.id}"></div>
+        <div th:text="'Title: ' + ${note.title}"></div>
+        <div th:text="'Content: ' + ${note.content}"></div>
+        <form style="width:100%" action="/note/edit" method="get">
+            <label>Enter ID to edit a Note</label>
+            <input text="Edit" name="id" id="id-for-edit">
+            <textarea name="content" id="content" cols="30" rows="10"></textarea>
+            <button type="submit" onClick="return confirm('sure?')">Edit</button>
+        </form>
+        <p>
+        <form style="width:100%" action="/note/delete" method="post">
+            <label>Enter ID to delete a Note</label>
+            <input text="Delete" name="id" id="id-for-delete">
+            <button type="submit" onClick="return confirm('sure?')">Delete</button>
+        </form>
+        </p>
+    </div>
+</div>
+</body>
+</html>
