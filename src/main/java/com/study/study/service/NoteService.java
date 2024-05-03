@@ -1,7 +1,10 @@
 package com.study.study.service;
 
 import com.study.study.data.entity.Note;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 

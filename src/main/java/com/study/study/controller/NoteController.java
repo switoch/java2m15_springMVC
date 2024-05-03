@@ -3,6 +3,7 @@ package com.study.study.controller;
 import com.study.study.data.entity.Note;
 import com.study.study.service.NoteService;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.boot.Banner;
 import org.springframework.http.HttpStatusCode;
@@ -14,6 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
+@RequestMapping("/note/list")
+@RequiredArgsConstructor
+@RestController
 public class NoteController {
     Note note;
     NoteService noteService = new NoteService();

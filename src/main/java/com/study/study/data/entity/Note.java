@@ -1,5 +1,6 @@
 package com.study.study.data.entity;
 
+
 public class Note {
     private Long id;
     private String title;
